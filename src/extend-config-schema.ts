@@ -394,6 +394,7 @@ export const extendConfigSchema = (sls: Serverless) => {
                 environment: { $ref: '#/definitions/cloudFunctionEnvironmentVariables' }, // Can be overridden by function configuration
                 vpc: { type: 'string' }, // Can be overridden by function configuration
                 labels: { $ref: '#/definitions/resourceManagerLabels' }, // Can be overridden by function configuration
+                apiGatewayName: { type: 'string' },
             },
         },
         function: {

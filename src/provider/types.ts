@@ -103,4 +103,5 @@ export interface ProviderConfig {
     labels: { [label: string]: string }, // Can be overridden by function configuration
     deploymentBucket: string | undefined;
     deploymentPrefix: string | undefined;
+    apiGatewayConfig: { [key: string]: string };
 }

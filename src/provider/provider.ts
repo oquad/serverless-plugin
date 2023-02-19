@@ -516,7 +516,9 @@ export class YandexCloudProvider implements ServerlessPlugin {
 
     async getApiGateway(): Promise<ApiGatewayInfo> {
         type ListApiGatewayResponse = cloudApi.serverless.apigateway_service.ListApiGatewayResponse;
-        const name = `${this.serverless.service.getServiceName()}-${this.getStage()}`;
+        // Can be set like this: 
+        // provider: apiGatewayConfig: name: <value>
+        const name = this.serverless.service.provider.apiGatewayConfig?.name ?? `${this.serverless.service.getServiceName()}-${this.getStage()}`;
         const listResponse: ListApiGatewayResponse = await this.apiGateways.list(
             CloudApiApiGatewayService.ListApiGatewayRequest.fromPartial({
                 folderId: this.folderId,
